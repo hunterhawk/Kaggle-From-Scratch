@@ -148,7 +148,7 @@ train_df.head()
 ```
 train_df.tail()
 ```
-![c6f4943e900ddfcb4d2dd0334fc52474.png](en-resource://database/13904:1)
+![image1](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image1.png)
 
 **哪些功能包含blank，null或empty values？**
 
@@ -224,7 +224,7 @@ train_df.describe()
 # SibSp distribution `[.68, .69]`
 # Age and Fare `[.1, .2, .3, .4, .5, .6, .7, .8, .9, .99]`
 ```
-![a6fdbe7641bdb9b9f6f62d150f3d122c.png](en-resource://database/13906:1)
+![image2](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image2.png)
 
 **分类特征的分布是什么？**
 
@@ -241,12 +241,12 @@ train_df.describe()
 # SibSp distribution `[.68, .69]`
 # Age and Fare `[.1, .2, .3, .4, .5, .6, .7, .8, .9, .99]`
 ```
-![5553c9bacc2b079f57c75a8cb7188ae1.png](en-resource://database/13908:1)
+![image3](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image3.png)
 
 ```
 train_df.describe(include=['O'])
 ```
-![bc5f2a21bfdbd952d9a923fbc94f7ae0.png](en-resource://database/13910:1)
+![image4](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image4.png)
 
 ## 基于数据分析的假设
 我们基于迄今为止所做的数据分析得出以下假设。我们可能会在采取适当行动之前进一步验证这些假设。
@@ -279,19 +279,19 @@ train_df.describe(include=['O'])
 ```
 train_df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![5904a54548a563e3c621b8d4500f23af.png](en-resource://database/13912:1)
+![image5](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image5.png)
 ```
 train_df[["Sex", "Survived"]].groupby(['Sex'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![ee923c9c89013ac1d06831ca0878c125.png](en-resource://database/13914:1)
+![image6](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image6.png)
 ```
 train_df[["SibSp", "Survived"]].groupby(['SibSp'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![1b35d0ba35b91a9048fe8a88cd4863c6.png](en-resource://database/13916:1)
+![image7](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image7.png)
 ```
 train_df[["Parch", "Survived"]].groupby(['Parch'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![862f09ff9f59f9f578b1357e4cc3b482.png](en-resource://database/13918:1)
+![image8](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image8.png)
 ## 通过可视化数据进行分析
 现在我们可以继续使用可视化分析数据来确认我们的一些假设。
 ### 关联数值特征
@@ -319,7 +319,7 @@ train_df[["Parch", "Survived"]].groupby(['Parch'], as_index=False).mean().sort_v
 g = sns.FacetGrid(train_df, col='Survived')
 g.map(plt.hist, 'Age', bins=20)
 ```
-![8712827ae4f03d6a471109f6f6e0f748.png](en-resource://database/13920:1)
+![image9](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image9.png)
 ### 关联数值和有序特征
 我们可以使用单个图组合多个特征来识别相关性。这可以通过具有数值的数值特征和分类特征来完成。
 
@@ -339,7 +339,7 @@ grid = sns.FacetGrid(train_df, col='Survived', row='Pclass', size=2.2, aspect=1.
 grid.map(plt.hist, 'Age', alpha=.5, bins=20)
 grid.add_legend();
 ```
-![93b8a24cbe39a6dc9f0e6aa908297482.png](en-resource://database/13922:1)
+![image10](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image10.png)
 ### 关联类别特征
 现在我们可以将分类特征与我们的解决方案目标相关联。
 
