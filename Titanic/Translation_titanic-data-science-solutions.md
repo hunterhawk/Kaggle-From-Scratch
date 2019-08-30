@@ -148,7 +148,7 @@ train_df.head()
 ```
 train_df.tail()
 ```
-![image1](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image1.png)
+![image2](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image2.png)
 
 **哪些功能包含blank，null或empty values？**
 
@@ -224,7 +224,7 @@ train_df.describe()
 # SibSp distribution `[.68, .69]`
 # Age and Fare `[.1, .2, .3, .4, .5, .6, .7, .8, .9, .99]`
 ```
-![image2](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image2.png)
+![image3](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image3.png)
 
 **分类特征的分布是什么？**
 
@@ -241,12 +241,12 @@ train_df.describe()
 # SibSp distribution `[.68, .69]`
 # Age and Fare `[.1, .2, .3, .4, .5, .6, .7, .8, .9, .99]`
 ```
-![image3](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image3.png)
+![image4](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image4.png)
 
 ```
 train_df.describe(include=['O'])
 ```
-![image4](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image4.png)
+![image5](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image5.png)
 
 ## 基于数据分析的假设
 我们基于迄今为止所做的数据分析得出以下假设。我们可能会在采取适当行动之前进一步验证这些假设。
@@ -279,19 +279,19 @@ train_df.describe(include=['O'])
 ```
 train_df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![image5](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image5.png)
+![image6](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image6.png)
 ```
 train_df[["Sex", "Survived"]].groupby(['Sex'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![image6](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image6.png)
+![image7](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image7.png)
 ```
 train_df[["SibSp", "Survived"]].groupby(['SibSp'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![image7](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image7.png)
+![image8](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image8.png)
 ```
 train_df[["Parch", "Survived"]].groupby(['Parch'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![image8](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image8.png)
+![image9](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image9.png)
 ## 通过可视化数据进行分析
 现在我们可以继续使用可视化分析数据来确认我们的一些假设。
 ### 关联数值特征
@@ -319,7 +319,7 @@ train_df[["Parch", "Survived"]].groupby(['Parch'], as_index=False).mean().sort_v
 g = sns.FacetGrid(train_df, col='Survived')
 g.map(plt.hist, 'Age', bins=20)
 ```
-![image9](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image9.png)
+![image10](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image10.png)
 ### 关联数值和有序特征
 我们可以使用单个图组合多个特征来识别相关性。这可以通过具有数值的数值特征和分类特征来完成。
 
@@ -339,7 +339,7 @@ grid = sns.FacetGrid(train_df, col='Survived', row='Pclass', size=2.2, aspect=1.
 grid.map(plt.hist, 'Age', alpha=.5, bins=20)
 grid.add_legend();
 ```
-![image10](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/image/image10.png)
+![image11](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image11.png)
 ### 关联类别特征
 现在我们可以将分类特征与我们的解决方案目标相关联。
 
@@ -361,7 +361,7 @@ grid = sns.FacetGrid(train_df, row='Embarked', size=2.2, aspect=1.6)
 grid.map(sns.pointplot, 'Pclass', 'Survived', 'Sex', palette='deep')
 grid.add_legend()
 ```
-![6f9f68618ce3e8f53d6529a8aefe0eed.png](en-resource://database/13926:1)
+![image12](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image12.png)
 ### 关联类别和数值特征
 我们还可以将分类特征（使用非数值的值）和数值特征相关联。 我们可以考虑将登船口岸（分类非数值特征），性别（分类非数值特征），票价（数值连续特征）与幸存（分类数值特征）相关联。
 
@@ -380,7 +380,7 @@ grid = sns.FacetGrid(train_df, row='Embarked', col='Survived', size=2.2, aspect=
 grid.map(sns.barplot, 'Sex', 'Fare', alpha=.5, ci=None)
 grid.add_legend()
 ```
-![56f7fa35b88ce8a87264ec335c99b9e3.png](en-resource://database/13928:1)
+![image13](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image13.png)
 ## 讨论数据
 我们收集了有关数据集和解决方案要求的若干假设和决策。 到目前为止，我们没有必要更改单个功能或值来实现这些功能。 现在让我们执行我们的决策和假设，以纠正，创建和完成目标。
 ### 通过丢弃特征进行修正
@@ -424,7 +424,7 @@ for dataset in combine:
 
 pd.crosstab(train_df['Title'], train_df['Sex'])
 ```
-![20956ec245cff67c685b1dceeb3325fe.png](en-resource://database/13930:1)
+![image14](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image14.png)
 我们可以用更常见的Name替换许多Title(头衔)或将它们归类为Rare(稀少)。
 ```
 for dataset in combine:
@@ -437,7 +437,7 @@ for dataset in combine:
 
 train_df[['Title', 'Survived']].groupby(['Title'], as_index=False).mean()
 ```
-![430e0b05e714cb176438cafe45c58216.png](en-resource://database/13932:1)
+![image15](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image15.png)
 我们可以将类别标题转换为序数。
 ```
 title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
@@ -447,7 +447,7 @@ for dataset in combine:
 
 train_df.head()
 ```
-![2eb2b6cc67a7edf2865d447fceb09c83.png](en-resource://database/13934:1)
+![image16](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image16.png)
 现在我们可以安全地从训练数据集和测试数据集中删除Name特征。我们也不需要训练数据集中的PassengerId特征。
 ```
 train_df = train_df.drop(['Name', 'PassengerId'], axis=1)
@@ -468,7 +468,7 @@ for dataset in combine:
 
 train_df.head()
 ```
-![3da5c26f6fbc5c1a41c8084fffa6d5f1.png](en-resource://database/13936:1)
+![image17](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image17.png)
 
 ### 补充完整数值连续特征
 
@@ -487,7 +487,7 @@ grid = sns.FacetGrid(train_df, row='Pclass', col='Sex', size=2.2, aspect=1.6)
 grid.map(plt.hist, 'Age', alpha=.5, bins=20)
 grid.add_legend()
 ```
-![62d53451471b2bd9b21680eb8e884861.png](en-resource://database/13940:1)
+![image18](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image18.png)
 我们首先准备一个空数组，以包含基于Pclass 与 Gender组合而得到的Age猜测值。
 ```
 guess_ages = np.zeros((2,3))
@@ -522,14 +522,14 @@ for dataset in combine:
 
 train_df.head()
 ```
-![54144472151cb1ed49569fa879eabe4c.png](en-resource://database/13942:1)
+![image19](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image19.png)
 
 创建年龄段并确定与幸存的相关性。
 ```
 train_df['AgeBand'] = pd.cut(train_df['Age'], 5)
 train_df[['AgeBand', 'Survived']].groupby(['AgeBand'], as_index=False).mean().sort_values(by='AgeBand', ascending=True)
 ```
-![a370f63190691365374fe5ae80397032.png](en-resource://database/13944:1)
+![image20](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image20.png)
 
 根据这些范围将年龄值替换为序数。
 ```
@@ -541,7 +541,7 @@ for dataset in combine:
     dataset.loc[ dataset['Age'] > 64, 'Age']
 train_df.head()
 ```
-![7e9af65400c40f325a61b2665fc57ee8.png](en-resource://database/13946:1)
+![image21](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image21.png)
 
 我们现在可以删除AgeBand特征。
 ```
@@ -549,7 +549,7 @@ train_df = train_df.drop(['AgeBand'], axis=1)
 combine = [train_df, test_df]
 train_df.head()
 ```
-![7bbc1eaef8b4f1b1d8493163b8d021e7.png](en-resource://database/13948:1)
+![image22](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image22.png)
 
 ### 组合现有特征，创建新特征
 我们可以为FamilySize创建一个新特征，它结合了Parch和SibSp。这将使我们能够从数据集中删除Parch和SibSp特征。
@@ -559,7 +559,7 @@ for dataset in combine:
 
 train_df[['FamilySize', 'Survived']].groupby(['FamilySize'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![81b4ca0a8d8030814b427f0750325420.png](en-resource://database/13950:1)
+![image23](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image23.png)
 
 我们可以创建另一个名为IsAlone的特征。
 ```
@@ -569,7 +569,7 @@ for dataset in combine:
 
 train_df[['IsAlone', 'Survived']].groupby(['IsAlone'], as_index=False).mean()
 ```
-![9831b231e1cd6e3e42521903acf4a767.png](en-resource://database/13952:1)
+![image24](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image24.png)
 
 让我们删除Parch，SibSp和FamilySize特征，转而使用IsAlone特征。
 ```
@@ -579,7 +579,7 @@ combine = [train_df, test_df]
 
 train_df.head()
 ```
-![31aa64480aa0bf2e4483a0e49165a4f4.png](en-resource://database/13954:1)
+![image25](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image25.png)
 
 我们还可以创建一个结合Pclass和Age的人工特征。
 ```
@@ -588,7 +588,7 @@ for dataset in combine:
 
 train_df.loc[:, ['Age*Class', 'Age', 'Pclass']].head(10)
 ```
-![e05e17892f25f9c1a0b7fea372d25755.png](en-resource://database/13956:1)
+![image26](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image26.png)
 
 ### 补充完整类别特征
 
@@ -605,7 +605,7 @@ for dataset in combine:
 
 train_df[['Embarked', 'Survived']].groupby(['Embarked'], as_index=False).mean().sort_values(by='Survived', ascending=False)
 ```
-![5aee5e4b79504b08d33ba1bc931bd3cf.png](en-resource://database/13958:1)
+![image27](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image27.png)
 
 ### 将类别特征转换为数值特征
 
@@ -616,7 +616,7 @@ for dataset in combine:
 
 train_df.head()
 ```
-![08334052443b91c41bf0f9d48079ab42.png](en-resource://database/13960:1)
+![image28](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image28.png)
 
 ### 快速补充并转换数值特征
 
@@ -629,13 +629,13 @@ train_df.head()
 test_df['Fare'].fillna(test_df['Fare'].dropna().median(), inplace=True)
 test_df.head()
 ```
-![629871aedfded1c655786f6f5b94bb2b.png](en-resource://database/13962:1)
+![image29](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image29.png)
 现在我们可以创建票价范围特征。
 ```
 train_df['FareBand'] = pd.qcut(train_df['Fare'], 4)
 train_df[['FareBand', 'Survived']].groupby(['FareBand'], as_index=False).mean().sort_values(by='FareBand', ascending=True)
 ```
-![18e46bce6a784cbc539cd3d1a4a84ac5.png](en-resource://database/13964:1)
+![image30](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image30.png)
 
 根据FareBand将票价特征转换为序数值。
 ```
@@ -651,13 +651,13 @@ combine = [train_df, test_df]
 
 train_df.head(10)
 ```
-![193e92573a9d4c917f57add8922bfd27.png](en-resource://database/13966:1)
+![image31](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image31.png)
 
 对测试数据集进行同样的操作。
 ```
 test_df.head(10)
 ```
-![4eadfb804a702d7c9c7f8ba0175e548d.png](en-resource://database/13968:1)
+![image32](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image32.png)
 ## 建模，预测和解决(问题)
 现在我们准备训练模型并预测所需的解决方案。 有60多种预测建模算法可供选择。 我们必须了解问题的类型和解决方案要求，以缩小到我们可以评估的少数几个模型。 我们的问题是分类和回归问题。 我们想要确定输出（幸存与否）与其他变量或特征（性别，年龄，港口......）之间的关系。 我们还使用了一种机器学习方法，称为监督学习，因为我们正在使用给定的数据集训练我们的模型。 有了这两个标准 - 监督学习加分类和回归，我们可以将我们选择的模型缩小到几个。 这些包括：
 
@@ -711,7 +711,7 @@ coeff_df["Correlation"] = pd.Series(logreg.coef_[0])
 
 coeff_df.sort_values(by='Correlation', ascending=False)
 ```
-![61814ae1c467be819b146e86994a9f12.png](en-resource://database/13970:1)
+![image33](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image33.png)
 
 ### SVM支持向量机
 接下来，我们使用支持向量机进行建模，支持向量机是监督学习模型，具有相关的学习算法，用于分析分类和回归分析。给定一组训练样本，每个训练样本被标记为属于两个类别中的一个或另一个，SVM训练算法构建将新测试样本分配给一个类别或另一个类别的模型，使其成为非概率二元线性分类器。 [SVM_wikipedia](https://en.wikipedia.org/wiki/Support_vector_machine)
@@ -837,7 +837,7 @@ models = pd.DataFrame({
               acc_sgd, acc_linear_svc, acc_decision_tree]})
 models.sort_values(by='Score', ascending=False)
 ```
-![cfef4b863745c253b5248ed610257630.png](en-resource://database/13972:1)
+![image34](https://github.com/hunterhawk/Kaggle-From-Scratch/blob/master/Titanic/res/image34.png)
 ```
 submission = pd.DataFrame({
         "PassengerId": test_df["PassengerId"],
